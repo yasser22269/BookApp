@@ -1,0 +1,54 @@
+Dashboard:
+Login     --done
+Users (all users)
+Publisher (all Publisher)
+Books (all books from Publishers and approve or reject)
+
+
+Api:
+login user
+Register
+Login child
+All books
+My Books
+login Publisher
+Register Publisher
+Upload books
+My books approved
+
+
+
+User:
+     name
+     user_name
+     email
+     phone
+     password
+     gender
+
+child:
+      name
+      user_id
+      age
+      user_name
+      password
+
+Publisher:
+          name
+          user_name
+          email
+          phone
+          password
+
+Books:
+      file
+      publisher_id
+      status(0,1)
+      name
+
+
+child_Books:
+            child_id
+            book_id
+            status(0,1)
+
