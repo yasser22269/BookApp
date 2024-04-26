@@ -43,7 +43,12 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
-
+        'FileBook' => [
+            'driver' => 'local',
+            'visibility' => 'public',
+            'root' => public_path('files/FileBook'),
+            'url' => env('APP_URL').'files/FileBook',
+        ],
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

@@ -23,4 +23,9 @@ class Book extends Model
     {
         return $value == 0 ? 'غير مفعل' : 'مفعل';
     }
+    public function getFileAttribute($value)
+    {
+        return env('APP_URL').'files/FileBook/' . $value ;
+    }
 }
+

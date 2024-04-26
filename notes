@@ -1,19 +1,17 @@
 Dashboard:
 Login     --done
-Users (all users)
-Publisher (all Publisher)
-Books (all books from Publishers and approve or reject)
+Users (all users)  --done
+Publisher (all Publisher)  --done
+Books (all books from Publishers and approve or reject)  --done
 
 
 Api:
-login user
-Register
-Login child
-All books
-My Books
-login Publisher
-Register Publisher
-Upload books
+login by type =(user , child , Publisher) --done
+Register --done
+RegisterPublisher --done
+All books --done
+My Books --done
+Upload books  --done
 My books approved
 
 

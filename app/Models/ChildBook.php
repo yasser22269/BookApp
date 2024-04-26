@@ -9,5 +9,8 @@ class ChildBook extends Model
 {
     use HasFactory;
     protected $guarded = [];
-
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
 }
