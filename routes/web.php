@@ -33,8 +33,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-//Route::get('Users/GetUsers', [UserController::class, 'GetUsers'])->name('Users.GetUsers');
-//Route::get('Children/GetChildren', [ChildController::class, 'GetChildren'])->name('Children.GetChildren');
-//Route::get('Books/GetBooks', [BookController::class, 'GetBooks'])->name('Books.GetBooks');
-//Route::get('Publishers/GetPublishers', [PublisherController::class, 'GetPublishers'])->name('Publishers.GetPublishers');
+Route::get('Users/GetUsers', [UserController::class, 'GetUsers'])->name('Users.GetUsers');
+Route::get('Children/GetChildren', [ChildController::class, 'GetChildren'])->name('Children.GetChildren');
+Route::get('Books/GetBooks', [BookController::class, 'GetBooks'])->name('Books.GetBooks');
+Route::get('Publishers/GetPublishers', [PublisherController::class, 'GetPublishers'])->name('Publishers.GetPublishers');
 

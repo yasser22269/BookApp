@@ -56,7 +56,7 @@ class AuthController extends Controller
     }
     public function registerPublisher(RegisterPublisherRequest $request)
     {
-//        try {
+        try {
             DB::beginTransaction();
             $Publisher = Publisher::create([
                 "name"=>$request->name,
@@ -71,11 +71,11 @@ class AuthController extends Controller
             DB::commit();
             return jsonResponse(['data'=>$Publisher ,'token'=> $token],200);
 
-//        } catch (\Exception $ex) {
-//            DB::rollback();
-//            return response()->json([null
-//            ],400,'يوجد مضكله حاول مره اخرى');
-//        }
+        } catch (\Exception $ex) {
+            DB::rollback();
+            return response()->json([null
+            ],400,'يوجد مضكله حاول مره اخرى');
+        }
 
     }
     function login(Request $request)
@@ -104,7 +104,7 @@ class AuthController extends Controller
     }
     function profile()
     {
-        if (!auth()->check()) {
+        if (!auth('user')->check()) {
             return jsonResponse(['Unauthorized'],200);
         }
         $user = User::where('id', auth()->user()->id)->with('children')->first();
@@ -112,6 +112,10 @@ class AuthController extends Controller
     }
     function profile_publisher()
     {
+        //'publisher'
+        if (!auth()->check()) {
+            return jsonResponse(['Unauthorized'],200);
+        }
         $user = Publisher::where('id', auth()->user()->id)->with('books')->first();
         return jsonResponse(['data'=>$user],200);
     }

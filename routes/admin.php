@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
          // ------------------------------Start Users--------------------------------------------
 
          Route::resource('Users', UserController::class );
-         Route::get('Users/GetUsers', [UserController::class, 'GetUsers'])->name('Users.GetUsers');
+//         Route::get('Users/GetUsers', [UserController::class, 'GetUsers'])->name('Users.GetUsers');
 
          // ------------------------------End Users--------------------------------------------
 
@@ -36,7 +36,7 @@ use Illuminate\Support\Facades\Route;
         // ------------------------------Start Children--------------------------------------------
 
         Route::resource('Children', ChildController::class );
-        Route::get('Children/GetChildren', [ChildController::class, 'GetChildren'])->name('Children.GetChildren');
+//        Route::get('Children/GetChildren', [ChildController::class, 'GetChildren'])->name('Children.GetChildren');
 
         // ------------------------------End Children--------------------------------------------
 
@@ -45,7 +45,7 @@ use Illuminate\Support\Facades\Route;
 
         Route::resource('Books', BookController::class );
         Route::get('Books/{id}/status', [BookController::class, 'changeStatus'])->name('Books.changeStatus');
-        Route::get('Books/GetBooks', [BookController::class, 'GetBooks'])->name('Books.GetBooks');
+//        Route::get('Books/GetBooks', [BookController::class, 'GetBooks'])->name('Books.GetBooks');
 
 
         // ------------------------------End Books--------------------------------------------
@@ -55,7 +55,7 @@ use Illuminate\Support\Facades\Route;
         // ------------------------------Start Publisher--------------------------------------------
 
         Route::resource('Publishers', PublisherController::class );
-        Route::get('Publishers/GetPublishers', [PublisherController::class, 'GetPublishers'])->name('Publishers.GetPublishers');
+//        Route::get('Publishers/GetPublishers', [PublisherController::class, 'GetPublishers'])->name('Publishers.GetPublishers');
 
         // ------------------------------End Publishers--------------------------------------------
 
