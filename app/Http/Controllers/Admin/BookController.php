@@ -23,6 +23,12 @@ class BookController extends Controller
         $data = Book::with('children','publisher')->get();
         return DataTables::of($data)
             ->addIndexColumn()
+            ->addColumn('book', function($row){
+                $btn = '  <a target="_blank" href="'. asset($row->file).'" class="round  box-shadow-2 px-1">
+                            <i class="la la-file"></i>
+                            </a>';
+                return $btn;
+            })
             ->addColumn('name', function($row){
                 return $row->name;
             })
@@ -52,7 +58,7 @@ class BookController extends Controller
                 ';
                 return $btn;
             })
-            ->rawColumns(['status','action','publisher','children','name'])
+            ->rawColumns(['status',"book",'action','publisher','children','name'])
             ->make(true);
     }
 

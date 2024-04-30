@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
 use App\Models\Book;
+use App\Models\Child;
+use App\Models\ChildBook;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
@@ -69,6 +71,35 @@ class BookController extends Controller
             return errorResponse($ex);
 
         }
+    }
+
+    public function AddBook(Request $request)
+    {
+        try {
+            DB::beginTransaction();
+            $ChildBook = ChildBook::UpdateOrcreate([
+                'book_id' => $request->id , 'status' => 1,
+                'child_id' => auth()->user()->id
+            ]);
+            DB::commit();
+            return jsonResponse([$ChildBook],200);
+
+        } catch (\Exception $ex) {
+            DB::rollback();
+            return errorResponse($ex);
+
+        }
+    }
+
+    public function ShowBooksForUser($id)
+    {
+            $Child =Child::find($id);
+            if($Child && $Child->books)
+                return jsonResponse([$Child->books],200);
+            else
+                return errorResponse();
+
+
     }
 
 

@@ -25,7 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::post('registerPublisher', [AuthController::class, 'registerPublisher'])->name('api.registerPublisher');
     Route::post('login', [AuthController::class, 'login'])->name('api.login');
 
-Route::middleware(['auth:sanctum','my_auth'])->group(function (){
+Route::middleware(['auth:sanctum'])->group(function (){ //,'my_auth'
     Route::get('profile', [AuthController::class, 'profile'])->name('profile');
     Route::get('profile_publisher', [AuthController::class, 'profile_publisher'])->name('profile_publisher');
 
@@ -33,6 +33,8 @@ Route::middleware(['auth:sanctum','my_auth'])->group(function (){
     Route::get('books/{id}', [BookController::class, 'show'])->name('books.show');
     Route::get('MyBooks', [BookController::class, 'MyBooks'])->name('books.MyBooks');
     Route::post('UploadBook', [BookController::class, 'UploadBook'])->name('books.UploadBook');
+    Route::post('AddBook', [BookController::class, 'AddBook'])->name('books.AddBook');
+    Route::get('ShowBooksForUser/{id}', [BookController::class, 'ShowBooksForUser'])->name('User.ShowBooksForUser');
 
 
 });

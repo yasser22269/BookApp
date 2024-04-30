@@ -34,6 +34,7 @@
             <table class="table yajra-datatable mt-2" id="Books">
                 <thead>
                 <tr>
+                    <th>PDF</th>
                     <th>Name</th>
                     <th>publisher</th>
                     <th>children</th>
@@ -101,6 +102,7 @@
                 ajax: "{{ route("Books.GetBooks") }}",
                 columns: [
                     // {data: 'id', name: 'id'},
+                    {data: 'book', name: 'book'},
                     {data: 'name', name: 'name'},
                     {data: 'publisher', name: 'publisher'},
                     {data: 'children', name: 'children'},
