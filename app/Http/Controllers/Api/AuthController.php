@@ -81,11 +81,11 @@ class AuthController extends Controller
     function login(Request $request)
     {
         if($request->type == 'publisher')
-            $data = Publisher::where('user_name',$request->user_name)->first();
+            $data = Publisher::where('phone',$request->phone)->orWhere('email',$request->email)->first();
         elseif($request->type == 'child')
             $data = Child::where('user_name',$request->user_name)->first();
         else
-            $data = User::where('user_name',$request->user_name)->first();
+            $data = User::where('phone',$request->phone)->orWhere('email',$request->email)->first();
 
         if($data){
             if(Hash::check($request->password,$data->password)){
@@ -104,7 +104,7 @@ class AuthController extends Controller
     }
     function profile()
     {
-        if (!auth('user')->check()) {
+        if (!auth()->check()) {
             return jsonResponse(['Unauthorized'],200);
         }
         $user = User::where('id', auth()->user()->id)->with('children')->first();
